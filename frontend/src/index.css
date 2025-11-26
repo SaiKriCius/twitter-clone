@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light, twitter, twitter-dark;
+}
+
+/* Twitter-style light theme */
+@plugin "daisyui/theme" {
+  name: twitter;
+
+  /* Primary = Twitter blue */
+  --color-primary: rgb(29 155 240);           /* #1DA1F2 */
+  --color-primary-content: #ffffff;
+
+  /* Secondary / accents */
+  --color-secondary: #0f1724;                 /* near-dark for text/headers */
+  --color-secondary-content: #e6eef6;
+
+  --color-accent: rgb(21 128 238);            /* slightly deeper blue */
+  --color-accent-content: #ffffff;
+
+  /* Base / backgrounds */
+  --color-base-100: #ffffff;                  /* page background */
+  --color-base-200: #f5f8fa;                  /* subtle card bg */
+  --color-base-300: #e6eef6;                  /* hover / gentle surfaces */
+  --color-base-content: #0f1724;              /* primary text color */
+
+  /* Neutrals & intents */
+  --color-neutral: #94a3b8;
+  --color-neutral-content: #0f1724;
+
+  --color-info: rgb(29 155 240);
+  --color-success: rgb(16 185 129);           /* green-500 */
+  --color-warning: rgb(249 115 22);           /* orange-500 */
+  --color-error: rgb(239 68 68);              /* red-500 */
+}
+
+/* Twitter-style dark theme */
+@plugin "daisyui/theme" {
+  name: twitter-dark;
+  default: false;
+  prefersdark: true;
+
+  --color-primary: rgb(29 155 240);
+  --color-primary-content: #0b1220;
+
+  --color-secondary: #cbd5e1;
+  --color-secondary-content: #0b1220;
+
+  --color-accent: rgb(21 128 238);
+  --color-accent-content: #ffffff;
+
+  --color-base-100: #0b1220;   /* dark background */
+  --color-base-200: #0f1724;   /* card background */
+  --color-base-300: #111827;   /* hover surfaces */
+  --color-base-content: #e6eef6; /* text color on dark bg */
+
+  --color-neutral: #64748b;
+  --color-neutral-content: #e6eef6;
+
+  --color-info: rgb(29 155 240);
+  --color-success: rgb(16 185 129);
+  --color-warning: rgb(249 115 22);
+  --color-error: rgb(239 68 68);
+}
+@plugin "daisyui/theme" {
+  name: "black";
+  default: true;
+  --color-primary: rgb(29, 155, 240);
+  --color-secondary: rgb(24, 24, 24);
+   --color-base-100: #000000;
+  --color-base-200: #0b0f13;
+  --color-base-content: #e7ecf0;
+}
