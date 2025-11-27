@@ -40,6 +40,7 @@ export const followUnfollowUser = async (req, res) => {
             //unfollow the user
             await User.findByIdAndUpdate(id,{$pull:{followers:req.user._id}}); 
             await User.findByIdAndUpdate(req.user._id,{$pull:{following:id}});
+            
             res.status(200).json({message:"User unfollowed successfully"});
         }
         else{
