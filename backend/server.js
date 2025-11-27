@@ -34,11 +34,26 @@ app.use("/api/posts", postRoutes);
 app.use("/api/notifications", notificationRoutes);
 
 if (process.env.NODE_ENV === "production"){
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
+  // app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  // });
+
+
+  // remove restrictive CSP header while debugging (so browser/devtools requests aren't blocked)
+  app.use((req, res, next) => { res.removeHeader('Content-Security-Policy'); next(); });
+
+  // serve the frontend build (fixed path join — no leading slash)
+  app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+  // serve index.html for SPA routes
+ app.get(/.*/, (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+});
+
+
+
 }
 
 
